@@ -47,4 +47,13 @@ public class CustomerDetailsServiceTest {
         assertEquals(exception.getMessage(), "There are no phonenumbers found for this customer.");
         assertEquals(exception.getStatus(), Status.NOT_FOUND);
     }
+
+    @Test
+    public void testActivatePhoneThrowException() {
+        List<CustomerPhone> customerList = new ArrayList<>();
+        when(phoneNumberRepository.findByPhoneNumber(anyString())).thenReturn(customerList);
+        CustomerDetailsException exception = assertThrows(CustomerDetailsException.class, () -> customerDetailsService.activatePhoneNumber("1234567890"));
+        assertEquals(exception.getMessage(), "There are no records present for this phone number.");
+        assertEquals(exception.getStatus(), Status.NOT_FOUND);
+    }
 }
