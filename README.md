@@ -7,7 +7,7 @@ This project provides the following APIs and is developed using spring boot, gra
 3. An API that allows to activate the phone number.
 
 ## Project Repo URL
-https://github.com/meera-gkpanicker/ms-accounts-details.git
+https://github.com/meera-gkpanicker/ms-belong-customer-details.git
 
 # Follow the below steps to build and run this application:
 
@@ -22,22 +22,27 @@ https://github.com/meera-gkpanicker/ms-accounts-details.git
 
 ## Testing RESTful Services
 
-1. Retrieve Accounts List:
+1. Retrieve All Phone Numbers:
 		
 		$ curl -X GET \
-            http://localhost:8090/ms-accounts-details/accounts/list \
-            -H 'cache-control: no-cache' \
-            -H 'postman-token: ba884e72-ee6a-273f-b95a-57f9074eb512'
+          http://localhost:8090/ms-belong-customer-details/phonenumbers/customer1 \
+          -H 'cache-control: no-cache' \
+          -H 'postman-token: 405b0149-abb5-58a2-e0a6-42391dd9f852'
 
 		
 
-2. Retrieve By AccountNumber:
+2. Retrieve Phone number By customer:
 
         $ curl -X GET \
-            http://localhost:8090/ms-accounts-details/accounts/123456 \
-            -H 'cache-control: no-cache' \
-            -H 'postman-token: bc17f4e5-8106-529f-3767-9af1bfcd0650'
+          http://localhost:8090/ms-belong-customer-details/phonenumbers/list \
+          -H 'cache-control: no-cache' \
+          -H 'postman-token: 3fbc9b70-62fa-428b-aed3-4f8c657d0bde'
 
 
 
+3. Activate Phone Number:
 
+        $ curl -X POST \
+          http://localhost:8090/ms-belong-customer-details/activate/456789003 \
+          -H 'cache-control: no-cache' \
+          -H 'postman-token: df5a6648-2b23-4c7e-cefb-d0fb4d238811'
